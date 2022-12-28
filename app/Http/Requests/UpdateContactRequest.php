@@ -26,7 +26,7 @@ class UpdateContactRequest extends FormRequest
         return [
             'name' => ['required', 'min:5'],
             'email' => ['required',  'email:rfc,dns'],
-            'contact' => ['required', 'min:8', 'max:90'],
+            'contact' => ['required', 'min:9', 'max:9'],
         ];
     }
 

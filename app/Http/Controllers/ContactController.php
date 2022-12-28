@@ -61,7 +61,7 @@ class ContactController extends Controller
             $data = $this->contact->create($data);
             return redirect()->route('contacts')->with('msg', 'contato criado com sucesso');
         } catch (\Exception $e) {
-            dd($e);
+            return redirect()->route('contacts')->with('msg', $e);
         }
     }
 
@@ -108,7 +108,7 @@ class ContactController extends Controller
             $contact = $contact->update($data);
             return redirect()->route('contacts')->with('msg', 'contato Atualizado com sucesso');
         } catch (\Exception $e) {
-            dd($e);
+            return redirect()->route('contacts')->with('msg', $e);
         }
     }
 
@@ -125,7 +125,7 @@ class ContactController extends Controller
                 return redirect()->route('contacts')->with('msg', 'contato excluido com sucesso');
             }
         } catch (\ErrorException $e) {
-            //throw $th;
+            return redirect()->route('contacts')->with('msg', $e);
         }
     }
 }
